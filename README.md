@@ -1,7 +1,7 @@
 ![](./header.png)
 
 
-# LAGraph/GraphBLAS in a PyPi-wheel
+# LAGraph/GraphBLAS in a PyPI-wheel
 Multiplatform prebuilt wheels with GraphBLAS/LAGraph shared libraries.
 ```sh
 pip install lagraph
