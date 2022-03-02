@@ -43,7 +43,7 @@ setup(
 
 If you want to build inplace, make sure you use --build_lib=.
 
-## Why patch build_ext?
+### Why do we need to patch build_ext?
 In order to allow a Python C extension to find `libgraphblas.so.3.3.3` at a relative path, we need to use something called `RPATH`. This is implemented slightly differently on macOS and Linux, but with some tweaking we can get the same behaviour on both platforms.
 The binary extension modules need to be patched after being built, which is the reason for patching build_ext, so that this can be added right after the compilation.
 
