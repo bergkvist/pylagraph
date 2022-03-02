@@ -38,6 +38,15 @@ def patch_build_ext(build_ext, library_dirs):
 
 
 def make_patch_rpath_commands(platform: str, ext_file: str, build_lib: str, library_dirs: List[str]) -> List[str]:
+    """Modify a compiled Python C extension/shared library to look for its dependencies at a relative path.
+   
+    We can't control the absolute path when running `pip install <package>` - which is why this is needed.
+    
+    PATH/CLI dependencies:
+    - patchelf on Linux (might be possible to install with `pip install patchelf`)
+    - install_name_tool on macOS (likely preinstalled)
+    - Windows (other than WSL2) is currently not supported
+    """
     if len(library_dirs) == 0:
         return []
 
