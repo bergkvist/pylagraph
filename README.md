@@ -2,7 +2,7 @@
 
 
 ## Why?
-The idea of this package is to make it easier for other developers to create library to GraphBLAS/LAGraph bindings without needing to set up their own build system for GraphBLAS/LAGraph.
+The idea of this package is to make it easier for other developers to create Python bindings for GraphBLAS/LAGraph without needing to set up their own build system for GraphBLAS/LAGraph.
 
 Since this package doesn't contain any Python C-bindings, it doesn't depend on a specific Python ABI version - and only needs to be published once per platform and desired GraphBLAS/LAGraph version.
 
