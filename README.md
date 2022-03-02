@@ -7,7 +7,7 @@ Multiplatform prebuilt wheels with GraphBLAS/LAGraph shared libraries.
 pip install lagraph
 ```
 
-This package does not contain Python bindings to the shared libraries.
+This package does not contain Python bindings for the shared libraries.
 
 ## Why?
 The idea of this package is to make it easier for other developers to create Python bindings for GraphBLAS/LAGraph without needing to set up their own build system for GraphBLAS/LAGraph.
