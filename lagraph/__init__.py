@@ -13,6 +13,14 @@ def get_library_dir() -> str:
     return os.path.abspath(os.path.join(dirname, '../lagraph.libs'))
 
 
+def get_libraries() -> List[str]:
+    """Get list of libraries which can be given to "libraries" in setuptools.
+    linux:  [ ":liblagraph.so.0.1.0",    ":libgraphblas.so.3.3.3"    ]
+    darwin: [ ":liblagraph.0.1.0.dylib", ":libgraphblas.3.3.3.dylib" ] etc.
+    """
+    return [ f':{library}' for library in os.listdir(get_library_dir()) ]
+
+
 def patch_build_ext(build_ext, library_dirs):
     class patched_build_ext(build_ext):
         def build_extension(self, ext) -> None:
