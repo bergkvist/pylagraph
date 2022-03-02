@@ -1,12 +1,12 @@
 ![](./header.png)
 
-# LAGraph/GraphBLAS in a PyPi-wheel
-Multiplatform prebuilt wheels with GraphBLAS/LAGraph shared libraries.
-
-## Installation
 ```sh
 pip install lagraph
 ```
+
+# LAGraph/GraphBLAS in a PyPi-wheel
+Multiplatform prebuilt wheels with GraphBLAS/LAGraph shared libraries.
+
 
 ## Why?
 The idea of this package is to make it easier for other developers to create Python bindings for GraphBLAS/LAGraph without needing to set up their own build system for GraphBLAS/LAGraph.
