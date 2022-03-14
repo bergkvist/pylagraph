@@ -28,3 +28,4 @@ WORKDIR /home/app
 COPY . .
 COPY --from=builder /lagraph.libs ./lagraph.libs
 RUN /opt/python/cp38-cp38/bin/python setup.py bdist_wheel
+RUN auditwheel repair dist/lagraph-*.whl
