@@ -21,6 +21,5 @@ setup(
         ('../../lagraph.include', files_in('./lagraph.include'))
     ],
     zip_safe=False,
-    cmdclass={'bdist_wheel': bdist_wheel},
-    install_requires=['patchelf; sys_platform == "linux"']
+    cmdclass={'bdist_wheel': bdist_wheel}
 )

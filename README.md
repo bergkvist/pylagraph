@@ -25,8 +25,9 @@ Assuming you want to write a Python C extension or similar
 
 ```py
 from setuptools import setup, Extension
-from setuptools.command.build_ext import build_ext
+from setuptools.command.build_ext import build_ext as _build_ext
 import lagraph
+import rpathtool
 
 setup(
   # ...
@@ -40,7 +41,7 @@ setup(
     ),
     # ...
   ],
-  cmdclass={'build_ext': lagraph.patch_build_ext(build_ext, [lagraph.get_library_dir()])}
+  cmdclass={'build_ext': rpathtool.patch_build_ext(build_ext, [lagraph.get_library_dir()])}
 )
 ```
 
