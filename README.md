@@ -4,7 +4,7 @@
 # LAGraph/GraphBLAS in a PyPI-wheel
 Multiplatform prebuilt wheels with GraphBLAS/LAGraph shared libraries.
 ```sh
-pip install lagraph
+pip install lagraph rpathtool
 ```
 
 This package does not contain Python bindings for the shared libraries.
@@ -15,9 +15,14 @@ The idea of this package is to make it easier for other developers to create Pyt
 Since this package doesn't contain any Python C-bindings, it doesn't depend on a specific Python ABI version - and only needs to be published once per platform and desired GraphBLAS/LAGraph version.
 
 ## Supported platforms
-- Linux
-- macOS
-- Windows (through WSL2)
+- Linux x86_64
+- macOS x86_64 (aarch64 is coming)
+- Windows x86_64 (through WSL2)
+
+## Supported build commands for users of the library
+[X] `python setup.py build_ext --build-lib=.` 
+[] `python setup.py sdist`
+[] `python setup.py bdist_wheel`
 
 ## Usage
 
@@ -28,6 +33,8 @@ from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext as _build_ext
 import lagraph
 import rpathtool
+
+build_ext = rpathtool.patch_build_ext(_build_ext, [lagraph.get_library_dir()])
 
 setup(
   # ...
@@ -41,7 +48,7 @@ setup(
     ),
     # ...
   ],
-  cmdclass={'build_ext': rpathtool.patch_build_ext(build_ext, [lagraph.get_library_dir()])}
+  cmdclass={'build_ext': build_ext}
 )
 ```
 
