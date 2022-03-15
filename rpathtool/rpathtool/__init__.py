@@ -1,9 +1,9 @@
 import os
 import sys
-from typing import List
+from typing import List, Dict
 
 
-def patch_build_ext(build_ext, library_dirs):
+def patch_build_ext(build_ext, library_dirs: List[str]):
     class patched_build_ext(build_ext):
         def build_extension(self, ext) -> None:
             super().build_extension(ext)
@@ -17,6 +17,15 @@ def patch_build_ext(build_ext, library_dirs):
                 print(cmd)
                 os.system(cmd)
     return patched_build_ext
+
+
+def patch_install(install, symlinks: Dict[str, str]):
+    class patched_install(install):
+        def run(self):
+            super().run()
+            for dst in symlinks:
+                os.symlink(dst=dst, src=symlinks[dst], target_is_directory=True)
+    return patched_install
 
 
 def make_patch_rpath_commands(platform: str, ext_file: str, build_lib: str, library_dirs: List[str]) -> List[str]:
