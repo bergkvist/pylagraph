@@ -20,9 +20,10 @@ Since this package doesn't contain any Python C-bindings, it doesn't depend on a
 - Windows x86_64 (through WSL2)
 
 ## Supported build commands for users of the library
-[X] `python setup.py build_ext --build-lib=.` 
-[] `python setup.py sdist`
-[] `python setup.py bdist_wheel`
+
+- [X] `python setup.py build_ext --build-lib=.` 
+- [ ] `python setup.py sdist`
+- [ ] `python setup.py bdist_wheel`
 
 ## Usage
 
