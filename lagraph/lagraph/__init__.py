@@ -1,4 +1,5 @@
 import os
+import sys
 from typing import List
 
 
@@ -14,7 +15,10 @@ def get_library_dir() -> str:
 
 def get_libraries() -> List[str]:
     """Get list of libraries which can be given to "libraries" in setuptools.
-    linux:  [ ":liblagraph.so.0.1.0",    ":libgraphblas.so.3.3.3"    ]
-    darwin: [ ":liblagraph.0.1.0.dylib", ":libgraphblas.3.3.3.dylib" ] etc.
+    linux:  [ ":liblagraph.so.0.1.0", ":libgraphblas.so.3.3.3" ]
+    darwin: [ "lagraph.0.1.0",        "graphblas.3.3.3"        ] etc.
     """
+    if sys.platform == 'darwin':
+        # Strip "lib" from the front, and ".dylib" from the back
+        return [ library[3:-6] for library in os.listdir(get_library_dir()) ]
     return [ f':{library}' for library in os.listdir(get_library_dir()) ]
