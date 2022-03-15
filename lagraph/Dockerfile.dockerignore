@@ -1,4 +1,9 @@
+build/
 dist/
-Dockerfile
-Makefile
+lagraph.egg-info
+lagraph.libs
 wheelhouse
+build-darwin.sh
+Makefile
+Dockerfile
+shell.nix
