@@ -16,7 +16,7 @@ Since this package doesn't contain any Python C-bindings, it doesn't depend on a
 
 ## Supported platforms
 - Linux x86_64
-- macOS x86_64 (aarch64 is coming)
+- macOS x86_64 + arm64 (apple silicon)
 - Windows x86_64 (through WSL2)
 
 ## Supported build commands for users of the library
